@@ -1,14 +1,14 @@
 String method(String arg) {
-    return 'String arg'
+    'String arg'
 }
 
 String method(Object arg) {
-    return 'Object arg'
+    'Object arg'
 }
 
 // runtime dispatch
 
 Object o = 'Object'
 
-println method(o)
-println method((Object) o)
+method(o)           // String arg
+method(o as Object) // Object arg

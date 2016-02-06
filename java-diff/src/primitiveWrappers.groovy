@@ -1,12 +1,12 @@
-void method(long l) {
-    println 'long arg'
+String method(long l) {
+    'long arg'
 }
 
-void method(Integer i) {
-    println 'Integer arg'
+String method(Integer i) {
+    'Integer arg'
 }
 
 int i
 
 // autowrap (boxing) over widening
-method(i)
+println method(i) // Integer arg
