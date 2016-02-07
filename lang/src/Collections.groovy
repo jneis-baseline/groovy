@@ -34,3 +34,7 @@ beauties['Jennifer'] // null
 
 beauties[(name)] = 'Anniston'
 beauties['Jennifer'] // 'Anniston'
+
+// maps as objs
+def obj = [a: 0, b: true, c: 'two']
+obj.a // 0
