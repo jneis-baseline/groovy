@@ -1,6 +1,6 @@
 // normal identifiers (same as Java)
 
-// quoted identifiers (when following a dot)
+// quoted Identifiers (when following a dot)
 
 def map = [:]
 
