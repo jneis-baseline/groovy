@@ -43,4 +43,4 @@ class Name {
 }
 new Name('Jen', 'Lawrence')
 ['Jen', 'Aniston'] as Name
-Name name = ['Jen', 'Connely']
+[name:'Jen'] as Person // only with named args
