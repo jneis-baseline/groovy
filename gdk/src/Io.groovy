@@ -28,5 +28,3 @@ new File('..').eachFileRecurse { f -> println f.name }
 // external processes
 def process = "ls -l".execute()
 println "ls -l: ${process.text}"
-
-
