@@ -3,8 +3,8 @@ import static Integer.MAX_VALUE as MAX_INT
 import static Long.MAX_VALUE as MAX_LONG
 import org.neis.hack.groovy.pkg.Twice as OriginalTwice
 
-MAX_INT
-MAX_LONG
+assert MAX_INT == Integer.MAX_VALUE
+assert MAX_LONG == Long.MAX_VALUE
 
 class Twice extends OriginalTwice {
     int doubleInt(int i) {

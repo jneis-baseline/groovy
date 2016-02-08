@@ -1,12 +1,9 @@
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
 // power
-2 ** 3
+assert (2 ** 3) == 8
 
 // int division
-10 / 2       // BigDecimal
-10.intdiv(2) // Integer
+assert (10 / 2).class == BigDecimal
+assert 10.intdiv(2).class == Integer
 
 // elvis operator
 def val
@@ -16,7 +13,7 @@ val ?: 'default'              // elvis operator
 
 // safe navigation operator (avoids NPE, returns null)
 def person
-person?.name // null
+assert person?.name == null
 
 // direct field access operator
 class Person {
@@ -26,12 +23,13 @@ class Person {
     }
 }
 person = new Person(name: 'Jennifer')
-person.name  // Name: Jennifer
-person.@name // Jennifer
+assert person.name == 'Name: Jennifer'
+assert person.@name == 'Jennifer'
 
 // method pointer operator (returns a reference to a method)
-def nameIt = person.&getName // MethodClosure
-nameIt() // Name: Jennifer
+def nameIt = person.&getName
+assert nameIt() == 'Name: Jennifer'
+assert nameIt.class == org.codehaus.groovy.runtime.MethodClosure
 
 // spread operator:
 //    - invokes a method on all items of a collection
@@ -42,4 +40,4 @@ def people = [
         null,
         new Person(name: 'Aniston')
 ]
-people*.name // ArrayList ['Lawrence', null, 'Aniston']
+assert people*.name == ['Name: Lawrence', null, 'Name: Aniston']

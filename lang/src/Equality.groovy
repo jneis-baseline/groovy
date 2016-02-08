@@ -21,19 +21,19 @@ A a2 = new A(i: 1)
 B a3 = new B(i: 1)
 B a4 = new B(i: 1)
 
-a1.compareTo(a2) // -1
+assert a1.compareTo(a2) == 0
 
 // equality using compareTo (Comparable)
-a1 == a1 // true
-a1 == a2 // true
+assert a1 == a1
+assert a1 == a2
 
 // equality using equals (not Comparable)
-a3 == a3 // true
-a3 == a4 // true
+assert a3 == a3
+assert a3 == a4
 
 // Comparable vs non-Comparable
-a1 == a3 // false
+assert a1 != a3
 
 // identity
-a1.is(a1) // true
-a1.is(a2) // false
+assert a1.is(a1)
+assert !a1.is(a2)

@@ -10,8 +10,8 @@ String method(Object arg) {
 
 Object o = 'Object'
 
-method(o)           // String arg
-method(o as Object) // Object arg
+assert method(o) == 'String arg'
+assert method(o as Object) == 'Object arg'
 
 String method(long l) {
     'long arg'
@@ -24,4 +24,5 @@ String method(Integer i) {
 int i
 
 // autowrap (boxing) over widening
-println method(i) // Integer arg
+assert method(i) == 'Integer arg'
+assert method(i as long) == 'long arg'

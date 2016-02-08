@@ -1,30 +1,30 @@
 import groovy.transform.Field
 
-// enclosing object A (class instance)
+def enclosingClass = this
+def person = new Person(name: 'Aniston')
 
 @Field def name = 'Lawrence'
 
-def closure = { // enclosing object B (closure)
-    // this = A
-    // owner = A
-    // delegate = owner (default)
+def closure = {
+    assert this == enclosingClass
+    assert owner == enclosingClass
+    assert delegate in [owner, person] // owner by default
 
-    this.name     // Lawrence
-    owner.name    // Lawrence
-    delegate.name // 'Lawrence' first, then 'Name: Aniston'
+    assert this.name == 'Lawrence'
+    assert owner.name == 'Lawrence'
+    assert delegate.name in ['Lawrence', 'Name: Aniston']
 
-    name          // = owner.name (OWNER_FIRST strategy)
+    assert name == owner.name // OWNER_FIRST strategy
 
     def nested = {
-        // this = A
-        // owner = B
-        // delegate = owner
+        assert this == enclosingClass
+        assert delegate == owner // enclosing closure
     }
     nested()
 }
 
 closure()
-closure.delegate = new Person(name: 'Aniston')
+closure.delegate = person
 closure()
 
 // delegation strategies:

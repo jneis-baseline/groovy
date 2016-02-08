@@ -43,5 +43,5 @@ class ClassC implements TraitA, TraitB {} // resolve to last defined parent
 class ClassD implements TraitA, TraitB {
     def exec() { TraitA.super.exec() }    // user conflict resolution
 }
-new ClassC().exec() // B
-new ClassD().exec() // A
+assert new ClassC().exec() == 'B'
+assert new ClassD().exec() == 'A'

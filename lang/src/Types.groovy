@@ -1,19 +1,24 @@
-def i = 1                    // Integer
-def l = 2147483648           // Long       (Integer.MAX_VALUE + 1)
-def bi = 9223372036854775808 // BigInteger (Long.MAX_VALUE + 1)
+assert 1.class == Integer
+assert 2147483648.class == Long                // Integer.MAX_VALUE + 1
+assert 9223372036854775808.class == BigInteger // Long.MAX_VALUE + 1
 
-float f = 1.0  // Float
-double d = 1E1 // Double
-def bd = 1.0E1 // BigDecimal
+float f = 1.0
+assert f.class == Float
+
+double d = 1E1
+assert d.class == Double
+
+def bd = 1.0E1
+assert bd.class == BigDecimal
 
 // underscore is permitted in literals (to improve readability)
-def creditCard = 1234_5678_9012_3456
-def money = 12_345_678.90
+assert 1234_5678_9012_3456 == 1234567890123456
+assert 12_345_678.90 == 12345678.9
 
 // enforcing literal types with suffixes
-123I   // Integer
-123L   // Long
-123G   // BigInteger
-123.4F // Float
-123.4D // Double
-123.4G // BigDecimal
+assert 123I.class == Integer
+assert 123L.class == Long
+assert 123G.class == BigInteger
+assert 123.4F.class == Float
+assert 123.4D.class == Double
+assert 123.4G.class == BigDecimal

@@ -22,7 +22,7 @@ interface Greeter {
     String greet(String name)
 }
 
-class DefaultGreeter {        // does not implement interface
+class DefaultGreeter {        // does not implement interface Greeter
     String greet(String name) { // but has a method with same signature
         "Hello, ${name}!"
     }
@@ -30,7 +30,7 @@ class DefaultGreeter {        // does not implement interface
 
 def greeter = new DefaultGreeter()
 def coerced = greeter as Greeter
-coerced.greet('Jen') // Hello, Jen!
+assert coerced.greet('Jen') == 'Hello, Jen!'
 
 // constructors' positional args (disable named args)
 class Name {
