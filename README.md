@@ -1,2 +1,2 @@
-# groovy-hack
-hacking groovy
+# hack-groovy
+hacking groovy language
